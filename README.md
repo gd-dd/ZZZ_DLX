@@ -22,7 +22,7 @@ ZZZ_DLX/
 │   └── DefaultGame.ini      # 游戏相关配置
 ├── Content/                 # 游戏资源目录
 │   ├── BP/                  # 蓝图目录
-│   │   ├── Agent/           # 角色智能体相关蓝图
+│   │   ├── Agent/           # Agent相关蓝图
 │   │   ├── Basic/           # 基础游戏对象蓝图
 │   │   ├── Level/           # 关卡相关蓝图
 │   │   └── StateMachine/    # 状态机系统蓝图
@@ -87,7 +87,7 @@ ZZZ_DLX/
 
 **关键类**：
 - `IStateMachine`：状态机接口定义
-- `SM_Agent_Base`：智能体基础状态机实现
+- `SM_Agent_Base`：Agent基础状态机实现
 
 ![状态机系统结构]（在UE编辑器中查看状态机蓝图截图）
 
@@ -127,7 +127,7 @@ ZZZ_DLX/
 - **闪避系统**：支持快速闪避和无敌帧
 - **技能系统**：实现角色技能释放和冷却管理
 
-### 2. 智能体系统
+### 2. Agent系统
 
 实现了基础实体系统，特别是BP_ZZZAgent作为Anby和怪物的父类实体。
 
