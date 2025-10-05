@@ -80,16 +80,20 @@ UE5仿绝区零动作系统游戏原型/
 以下是各主要动画状态的展示：
 
 [角色待机状态]
-<img width="800" height="600" alt="Idle" src="截图/Idle.png" />
+<img width="2560" height="1549" alt="Idle" src="https://github.com/user-attachments/assets/8a27e500-2cf2-4d3f-8b73-c70142ca6f52" />
+
 
 [角色行走状态]
-<img width="800" height="600" alt="Walk" src="截图/Walk.png" />
+<img width="2560" height="1549" alt="Walk" src="https://github.com/user-attachments/assets/ceeed997-4d8a-4261-9fdc-559d4281aaf0" />
+
 
 [角色冲刺状态]
-<img width="800" height="600" alt="Dash" src="截图/Dash.png" />
+<img width="2560" height="1549" alt="Dash" src="https://github.com/user-attachments/assets/40a57063-7e6a-4dba-95be-f39466cc9da9" />
 
-[角色翻滚状态]
-<img width="800" height="600" alt="roll" src="截图/roll.png" />
+
+[角色转向偏角]
+<img width="2560" height="1549" alt="roll" src="https://github.com/user-attachments/assets/2817535b-aca9-479e-a365-b9991334f0ee" />
+
 
 [动画蓝图结构]
 <img width="2560" height="1549" alt="动画蓝图结构" src="https://github.com/user-attachments/assets/35a59579-65eb-4b5a-aa18-d9cda26d1d8c" />
