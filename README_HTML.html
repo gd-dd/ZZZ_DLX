@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UE5仿绝区零动作系统游戏原型</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+            margin-top: 1.5em;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 1em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.3em;
+        }
+        h2 {
+            font-size: 2em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.3em;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        ul, ol {
+            margin-bottom: 1em;
+            padding-left: 2em;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 1em;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f5f5f5;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1em;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>UE5仿绝区零动作系统游戏原型</h1>
+
+        <h2>项目概述</h2>
+        <p>UE5仿绝区零动作系统游戏原型 是一个基于 Unreal Engine 5 开发的动作游戏原型，参考了《绝区零》的核心玩法机制与视觉风格。该项目实现了完整的游戏框架、动作战斗系统、动画状态管理及UI特效系统，展示了如何在UE5中构建高质量的动作游戏体验。</p>
+
+        <h2>项目技术栈</h2>
+        <ul>
+            <li><strong>游戏引擎</strong>：Unreal Engine 5.5</li>
+            <li><strong>编程语言</strong>：Blueprint</li>
+            <li><strong>动画系统</strong>：RootMotion、动画状态机、AnimNotify</li>
+            <li><strong>输入系统</strong>：EnhancedInputSystem</li>
+        </ul>
+
+        <h2>项目目录结构</h2>
+        <pre>
+UE5仿绝区零动作系统游戏原型/
+├── Config/                  # 引擎配置文件
+│   ├── DefaultEngine.ini    # 核心引擎设置
+│   ├── DefaultEditor.ini    # 编辑器配置
+│   ├── DefaultInput.ini     # 输入系统配置
+│   └── DefaultGame.ini      # 游戏相关配置
+├── Content/                 # 游戏资源目录
+│   ├── BP/                  # 蓝图目录
+│   │   ├── Agent/           # Agent相关蓝图
+│   │   ├── Basic/           # 基础游戏对象蓝图
+│   │   ├── Level/           # 关卡相关蓝图
+│   │   └── StateMachine/    # 状态机系统蓝图
+│   ├── Characters/          # 角色资源
+│   ├── LevelPrototyping/    # 关卡原型资源
+│   ├── Anby/                # 特定角色资源
+│   └── ThirdPerson/         # 第三人称模板资源
+└── UE5仿绝区零动作系统游戏原型.uproject         # 项目文件
+        </pre>
+
+        <h2>核心系统实现</h2>
+
+        <h3>1. 游戏框架系统</h3>
+        <p>基于UE5原生架构搭建了完整的游戏框架，实现了游戏模式、游戏状态、玩家控制器和角色 pawn 之间的协同工作。</p>
+        <ul>
+            <li><strong>GameMode</strong>：控制游戏规则和流程（使用BP_ThirdPersonGameMode）</li>
+            <li><strong>GameState</strong>：存储全局游戏状态信息</li>
+            <li><strong>PlayerController</strong>：处理玩家输入和相机控制</li>
+            <li><strong>PlayerState</strong>：存储玩家特定数据</li>
+            <li><strong>Pawn/Character</strong>：代表玩家控制的角色实体</li>
+            <li><strong>GameInstance</strong>：使用自定义的BP_UE5仿绝区零GameInstance管理全局游戏实例</li>
+        </ul>
+        <p><strong>配置位置</strong>：<code>Config/DefaultEngine.ini</code> 中的 <code>[/Script/EngineSettings.GameMapsSettings]</code> 部分</p>
+        <p>游戏框架结构</p>
+        <img width="2560" height="1549" alt="游戏框架结构" src="https://github.com/user-attachments/assets/06012ac8-8f58-43f2-a61e-3881d17c0312">
+
+        <h3>2. 输入系统</h3>
+        <p>采用EnhancedInputSystem构建现代化的输入处理流程，实现了精确的输入映射和处理。</p>
+        <ul>
+            <li><strong>输入映射</strong>：将物理输入（键盘、鼠标、手柄）映射到逻辑输入操作</li>
+            <li><strong>Controller层</strong>：PlayerController接收和处理输入事件</li>
+            <li><strong>Pawn执行</strong>：将输入结果传递给Pawn执行相应动作</li>
+            <li><strong>InputCacheSystem</strong>：实现输入缓存，优化连击和连续动作响应</li>
+        </ul>
+        <p><strong>主要功能</strong>：支持多设备输入、自定义输入绑定、输入优先级处理</p>
+        <p>输入系统配置</p>
+        <img width="1448" height="2348" alt="输入系统配置" src="https://github.com/user-attachments/assets/cbcf53da-62c6-47be-94c1-40137df53013">
+
+        <h3>3. 动画系统</h3>
+        <p>参考《绝区零》的动画风格，完全采用RootMotion动画系统，正确配置了AnimationBlueprint以实现流畅的角色动作。</p>
+        <ul>
+            <li><strong>RootMotion与InSpace对比</strong>：选择RootMotion实现更自然的角色移动和交互</li>
+            <li><strong>动画状态机</strong>：在AnimationBlueprint中实现了完整的Locomotion系统</li>
+            <li><strong>状态切换</strong>：实现了Idle、Walk、Attack、Dash等基础状态及其平滑过渡</li>
+            <li><strong>动画通知系统</strong>：使用AnimNotify和AnimNotifyState触发游戏事件</li>
+            <li><strong>连击系统</strong>：实现ChainAttack机制，支持连续技能组合</li>
+        </ul>
+        <p>动画蓝图结构</p>
+        <img width="2560" height="1549" alt="动画蓝图结构" src="https://github.com/user-attachments/assets/35a59579-65eb-4b5a-aa18-d9cda26d1d8c">
+
+        <h3>4. 状态机系统</h3>
+        <p>引入了自定义的状态机系统，实现了复杂的角色行为管理。</p>
+        <ul>
+            <li><strong>基础架构</strong>：State基类和StateManager管理器</li>
+            <li><strong>角色状态机</strong>：CharacterStateMachine处理玩家角色状态</li>
+            <li><strong>Agent实体类</strong>：Agent是角色和怪物的父类，属于基础实体类，用于存储通用变量</li>
+            <li><strong>状态转换</strong>：实现了条件触发的状态切换逻辑</li>
+            <li><strong>状态叠加</strong>：支持多状态叠加和优先级管理</li>
+        </ul>
+        <p><strong>关键类</strong>：</p>
+        <ul>
+            <li><code>IStateMachine</code>：状态机接口定义</li>
+            <li><code>SM_Agent_Base</code>：Agent基础状态机实现</li>
+        </ul>
+        <p>状态机系统结构</p>
+        <img width="2559" height="1355" alt="状态机系统结构" src="https://github.com/user-attachments/assets/a4855227-9ede-4326-80c7-2f215c61e780">
+        <p>statemachine</p>
+        <img width="2560" height="1549" alt="statemachine" src="https://github.com/user-attachments/assets/93fe8cec-ffbe-4617-95f1-9bab1254f20a">
+
+        <h3>5. 关卡序列系统</h3>
+        <p>实现了动态Sequencer系统，用于创建过场动画和特殊效果。</p>
+        <ul>
+            <li><strong>动态关卡序列</strong>：在运行时创建和控制关卡序列</li>
+            <li><strong>播放控制</strong>：实现序列播放、暂停、循环等控制功能</li>
+            <li><strong>事件触发</strong>：通过蓝图事件触发序列，同时使开始位置为角色当前位置</li>
+        </ul>
+        <p><strong>核心功能点</strong>：</p>
+        <ul>
+            <li><code>CreateLevelSequencePlayer</code>：创建关卡序列播放器</li>
+            <li><code>OnSequencePlay</code>：序列播放事件处理</li>
+            <li><code>SetBindingByTag</code>：通过标签设置绑定关系</li>
+        </ul>
+
+        <h3>6. 碰撞系统</h3>
+        <p>实现了精确的碰撞检测和响应系统，支持复杂的物理交互。</p>
+        <ul>
+            <li><strong>碰撞体配置</strong>：为不同角色和物体设置合适的碰撞体</li>
+            <li><strong>碰撞响应</strong>：定义不同类型对象间的碰撞行为</li>
+            <li><strong>命中检测</strong>：实现攻击和交互的精确命中检测</li>
+        </ul>
+        <p>碰撞体设置</p>
+        <img width="2560" height="1549" alt="AttackColider" src="https://github.com/user-attachments/assets/0aef5926-f745-4719-b8cd-bc45ad000d21">
+
+        <h2>核心功能模块</h2>
+
+        <h3>1. 角色控制系统</h3>
+        <p>实现了完整的角色控制方案，支持移动、攻击、闪避等核心动作。</p>
+        <ul>
+            <li><strong>移动控制</strong>：支持八方向移动、加速、减速</li>
+            <li><strong>攻击系统</strong>：实现基础攻击和连击机制</li>
+            <li><strong>闪避系统</strong>：支持快速闪避和无敌帧</li>
+            <li><strong>技能系统</strong>：实现角色技能释放和冷却管理</li>
+        </ul>
+
+        <h3>2. Agent系统</h3>
+        <p>实现了基础实体系统，特别是BP_ZZZAgent作为Anby和怪物的父类实体。</p>
+        <ul>
+            <li><strong>通用变量存储</strong>：为角色和怪物提供共享的变量存储机制</li>
+            <li><strong>基础功能继承</strong>：作为各类实体的基础类，提供共享功能</li>
+            <li><strong>组件管理</strong>：统一管理和初始化各类组件</li>
+            <li><strong>事件系统</strong>：实现通用的事件分发机制</li>
+        </ul>
+
+        <h2>项目特色与亮点</h2>
+        <ol>
+            <li><strong>完整的游戏框架</strong>：基于UE5搭建的完整动作框架</li>
+            <li><strong>高级动画系统</strong>：完整实现RootMotion动画系统，类似《绝区零》的动画表现</li>
+            <li><strong>模块化设计</strong>：采用模块化设计，便于扩展和维护</li>
+            <li><strong>流畅的战斗体验</strong>：通过输入缓存和状态机系统实现流畅的战斗体验</li>
+        </ol>
+
+        <h2>技术难点与解决方案</h2>
+
+        <h3>1. RootMotion动画同步</h3>
+        <p><strong>挑战</strong>：确保RootMotion动画与游戏逻辑和物理系统正确同步</p>
+        <p><strong>解决方案</strong>：</p>
+        <ul>
+            <li>正确配置动画蓝图中的RootMotion设置</li>
+            <li>实现动画与物理系统的解耦和重新同步机制</li>
+            <li>使用动画通知精确控制游戏事件触发时机</li>
+        </ul>
+
+        <h3>2. 输入响应优化</h3>
+        <p><strong>挑战</strong>：实现流畅的输入响应和连击系统</p>
+        <p><strong>解决方案</strong>：</p>
+        <ul>
+            <li>引入InputCacheSystem缓存短时间内的输入</li>
+            <li>优化输入处理优先级和响应时间</li>
+            <li>实现基于时间窗口的连击判定机制</li>
+        </ul>
+
+        <h2>运行说明</h2>
+        <ol>
+            <li>使用Unreal Engine 5.5打开项目文件<code>UE5仿绝区零动作系统游戏原型.uproject</code></li>
+            <li>在编辑器中加载<code>/Game/BP/Level/ZZZTestMap</code>测试地图</li>
+            <li>点击运行按钮开始游戏</li>
+            <li>使用键盘WASD控制移动，鼠标控制视角，点击左键攻击，shift/右键闪避</li>
+        </ol>
+
+        <h2>项目总结</h2>
+        <p>UE5仿绝区零动作系统游戏原型项目成功实现了一个基于Unreal Engine 5的动作游戏原型，参考了《绝区零》的核心玩法和视觉风格。项目展示了如何在UE5中构建完整的游戏框架、实现流畅的战斗系统、创建精美的视觉效果，为开发高质量动作游戏提供了良好的基础。通过模块化设计和先进的UE5技术，项目具有良好的扩展性和可维护性，可作为类似游戏开发的参考和起点。</p>
+    </div>
+</body>
+</html>

@@ -1,8 +1,8 @@
-# ZZZ_DLX 游戏原型项目
+# UE5仿绝区零动作系统游戏原型
 
 ## 项目概述
 
-ZZZ_DLX 是一个基于 Unreal Engine 5 开发的动作游戏原型，参考了《绝区零》的核心玩法机制与视觉风格。该项目实现了完整的游戏框架、动作战斗系统、动画状态管理及UI特效系统，展示了如何在UE5中构建高质量的动作游戏体验。
+UE5仿绝区零动作系统游戏原型 是一个基于 Unreal Engine 5 开发的动作游戏原型，参考了《绝区零》的核心玩法机制与视觉风格。该项目实现了完整的游戏框架、动作战斗系统、动画状态管理及UI特效系统，展示了如何在UE5中构建高质量的动作游戏体验。
 
 ## 项目技术栈
 
@@ -14,7 +14,7 @@ ZZZ_DLX 是一个基于 Unreal Engine 5 开发的动作游戏原型，参考了�
 ## 项目目录结构
 
 ```
-ZZZ_DLX/
+UE5仿绝区零动作系统游戏原型/
 ├── Config/                  # 引擎配置文件
 │   ├── DefaultEngine.ini    # 核心引擎设置
 │   ├── DefaultEditor.ini    # 编辑器配置
@@ -30,7 +30,7 @@ ZZZ_DLX/
 │   ├── LevelPrototyping/    # 关卡原型资源
 │   ├── Anby/                # 特定角色资源
 │   └── ThirdPerson/         # 第三人称模板资源
-└── ZZZ_DLX.uproject         # 项目文件
+└── UE5仿绝区零动作系统游戏原型.uproject         # 项目文件
 ```
 
 ## 核心系统实现
@@ -76,6 +76,20 @@ ZZZ_DLX/
 - **状态切换**：实现了Idle、Walk、Attack、Dash等基础状态及其平滑过渡
 - **动画通知系统**：使用AnimNotify和AnimNotifyState触发游戏事件
 - **连击系统**：实现ChainAttack机制，支持连续技能组合
+
+以下是各主要动画状态的展示：
+
+[角色待机状态]
+<img width="800" height="600" alt="Idle" src="截图/Idle.png" />
+
+[角色行走状态]
+<img width="800" height="600" alt="Walk" src="截图/Walk.png" />
+
+[角色冲刺状态]
+<img width="800" height="600" alt="Dash" src="截图/Dash.png" />
+
+[角色翻滚状态]
+<img width="800" height="600" alt="roll" src="截图/roll.png" />
 
 [动画蓝图结构]
 <img width="2560" height="1549" alt="动画蓝图结构" src="https://github.com/user-attachments/assets/35a59579-65eb-4b5a-aa18-d9cda26d1d8c" />
@@ -176,12 +190,12 @@ ZZZ_DLX/
 
 ## 运行说明
 
-1. 使用Unreal Engine 5.5打开项目文件`ZZZ_DLX.uproject`
+1. 使用Unreal Engine 5.5打开项目文件`UE5仿绝区零动作系统游戏原型.uproject`
 2. 在编辑器中加载`/Game/BP/Level/ZZZTestMap`测试地图
 3. 点击运行按钮开始游戏
 4. 使用键盘WASD控制移动，鼠标控制视角，点击左键攻击，shift/右键闪避
 
 ## 项目总结
 
-ZZZ_DLX项目成功实现了一个基于Unreal Engine 5的动作游戏原型，参考了《绝区零》的核心玩法和视觉风格。项目展示了如何在UE5中构建完整的游戏框架、实现流畅的战斗系统、创建精美的视觉效果，为开发高质量动作游戏提供了良好的基础。通过模块化设计和先进的UE5技术，项目具有良好的扩展性和可维护性，可作为类似游戏开发的参考和起点。
+UE5仿绝区零动作系统游戏原型项目成功实现了一个基于Unreal Engine 5的动作游戏原型，参考了《绝区零》的核心玩法和视觉风格。项目展示了如何在UE5中构建完整的游戏框架、实现流畅的战斗系统、创建精美的视觉效果，为开发高质量动作游戏提供了良好的基础。通过模块化设计和先进的UE5技术，项目具有良好的扩展性和可维护性，可作为类似游戏开发的参考和起点。
 
