@@ -1,0 +1,14 @@
+1.描述游戏原型以及实现的系统的来源。
+2.UE自身的游戏框架（GameMode，GameState，Playercontroller，Playerstate，Pawn）；
+3.搭建了游戏框架；
+4.EnhancedInputSystem构建输入，Controller读取输入，Pawn执行输入结果；
+5.RootMotion和InSpace动画的区别，绝区零都是RootMotion，正确设置了AnimationBlueprint。
+6.动画状态机（AnimationBlueprint Locomotion）
+7.引入了State Machine（State，StateManager）
+8.CharacterStateMachine，AgentStateMachine（Agent）
+9.Idle，Walk，Attack，Dash
+10.ChainAttack，AnimNotify，AnimNotifyState
+11.InputCacheSystem
+12.Collider
+13.Sequencer(动态sequencer的效果)
+14.UI蒙皮，主要对应的绝区零的大招效果。
