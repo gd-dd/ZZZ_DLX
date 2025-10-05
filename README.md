@@ -48,7 +48,7 @@ ZZZ_DLX/
 
 **配置位置**：`Config/DefaultEngine.ini` 中的 `[/Script/EngineSettings.GameMapsSettings]` 部分
 
-![游戏框架结构]（游戏框架蓝图关系图，可在UE编辑器中截图）
+![游戏框架结构](截图\游戏框架结构.png)
 
 ### 2. 输入系统
 
@@ -61,7 +61,7 @@ ZZZ_DLX/
 
 **主要功能**：支持多设备输入、自定义输入绑定、输入优先级处理
 
-![输入系统配置]（在项目设置-输入中截图EnhancedInputSystem配置）
+![输入系统配置](截图\输入系统配置].png)
 
 ### 3. 动画系统
 
@@ -73,7 +73,7 @@ ZZZ_DLX/
 - **动画通知系统**：使用AnimNotify和AnimNotifyState触发游戏事件
 - **连击系统**：实现ChainAttack机制，支持连续技能组合
 
-![动画蓝图结构]（在UE编辑器中打开AnimationBlueprint截图）
+![动画蓝图结构](截图\动画蓝图结构.png)
 
 ### 4. 状态机系统
 
@@ -89,7 +89,8 @@ ZZZ_DLX/
 - `IStateMachine`：状态机接口定义
 - `SM_Agent_Base`：Agent基础状态机实现
 
-![状态机系统结构]（在UE编辑器中查看状态机蓝图截图）
+![状态机系统结构](截图\状态机系统结构.png)
+![statemachine](截图\statemachine.png)
 
 ### 5. 关卡序列系统
 
@@ -104,8 +105,6 @@ ZZZ_DLX/
 - `OnSequencePlay`：序列播放事件处理
 - `SetBindingByTag`：通过标签设置绑定关系
 
-![关卡序列编辑器]（在UE编辑器中打开Sequencer截图）
-
 ### 6. 碰撞系统
 
 实现了精确的碰撞检测和响应系统，支持复杂的物理交互。
@@ -114,7 +113,7 @@ ZZZ_DLX/
 - **碰撞响应**：定义不同类型对象间的碰撞行为
 - **命中检测**：实现攻击和交互的精确命中检测
 
-![碰撞体设置]（在UE编辑器中查看角色碰撞体配置截图）
+![碰撞体设置](截图\AttackColider.png)
 
 ## 核心功能模块
 
